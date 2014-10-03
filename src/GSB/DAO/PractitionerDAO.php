@@ -47,14 +47,14 @@ class PractitionerDAO extends DAO
     }
     
      protected function buildDomainObject($row) {
-        $typeId = $row['practitioner_id'];
+        $typeId = $row['practitioner_type_id'];
         $type = $this->typeDAO->find($typeId);
 
         $practitioner = new Practitioner();
         $practitioner->setId($row['practitioner_id']);
         $practitioner->setName($row['practitioner_name']);
         $practitioner->setFirstname($row['practitioner_first_name']);
-        $practitioner->setAdress($row['practitioner_adress']);
+        $practitioner->setAdress($row['practitioner_address']);
         $practitioner->setZipcode($row['practitioner_zip_code']);
         $practitioner->setCity($row['practitioner_city']);
         $practitioner->setNotorietycoefficient($row['notoriety_coefficient']);

@@ -63,7 +63,7 @@ class practitioner
         return $this->name;
     }
     public function setName($name){
-        $this->id = ($name);
+        $this->name  = ($name);
     }
      public function getFirstname(){
         return $this->firstname;
@@ -76,7 +76,7 @@ class practitioner
                 ;
     }
     public function setAdress($adress){
-        $this->id = ($adress);
+        $this->adress = ($adress);
     }
      public function getZipcode(){
         return $this->zipcode;

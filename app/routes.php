@@ -36,3 +36,15 @@ $app->get('/practitioners/', function() use ($app){
   $practitioners = $app['dao.practitioner']->findAll();
   return $app['twig']->render ('practitioners.html.twig', array('practitioners'=> $practitioners));
 });
+// Search form for drpractitioners
+$app->get('/practitioners/search/', function() use ($app) {
+    $types = $app['dao.type']->findAll();
+    return $app['twig']->render('practitioners_search.html.twig', array('types' => $types));
+});
+
+// Results page for drugs
+$app->post('/practitioners/results/', function(Request $request) use ($app) {
+    $typeId = $request->request->get('type');
+    $drugs = $app['dao.practitioner']->findAllByFamily($typeId);
+    return $app['twig']->render('practitioners_results.html.twig', array('types' => $types));
+});
