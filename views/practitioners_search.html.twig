@@ -12,7 +12,7 @@
             <div class="col-sm-7">
                 <select class="form-control" name="practitioner">
                     {% for practitioner in types %}
-                        <option value="{{ practitioner.type.id }}">{{ practitioner.type.name }}</option>
+                        <option value="{{ practitioner.id }}">{{ practitioner.name }}</option>
                     {% endfor %}
                 </select>
             </div>

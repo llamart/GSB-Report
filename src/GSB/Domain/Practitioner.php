@@ -45,7 +45,7 @@ class practitioner
      * 
      * @var int
      */
-    private $notoriety;
+    private $coefficientnotoriety;
     /**
      * practitioner name 
      * 
@@ -90,11 +90,11 @@ class practitioner
     public function setCity($city){
         $this->city = ($city);
     }
-     public function getNotoritycoefficient(){
-        return $this->notoriety;
+     public function getCoefficientnotoriety(){
+        return $this->coefficientnotoriety;
     }
-    public function setNotorietycoefficient($notoriety){
-        $this->notoriety = ($notoriety);
+    public function setCoefficientnotoriety($notoriety){
+        $this->coefficientnotoriety = ($notoriety);
     }
      public function getType(){
         return $this->type;

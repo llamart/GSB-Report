@@ -57,7 +57,7 @@ class PractitionerDAO extends DAO
         $practitioner->setAdress($row['practitioner_address']);
         $practitioner->setZipcode($row['practitioner_zip_code']);
         $practitioner->setCity($row['practitioner_city']);
-        $practitioner->setNotorietycoefficient($row['notoriety_coefficient']);
+        $practitioner->setCoefficientnotoriety($row['notoriety_coefficient']);
         $practitioner->setType($type);
        
         return $practitioner;
