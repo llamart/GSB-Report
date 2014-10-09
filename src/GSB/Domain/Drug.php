@@ -4,6 +4,12 @@ namespace GSB\Domain;
 
 class Drug 
 {
+       /**
+     * Comment author.
+     *
+     * @var \GSB\Domain\Visitor
+     */
+    private $author;
     /**
      * Drug id.
      *

@@ -9,6 +9,16 @@ class DrugDAO extends DAO
     /**
      * @var \GSB\DAO\FamilyDAO
      */
+   // ...
+
+    /**
+     * @var \MicroCMS\DAO\UserDAO
+     */
+    protected $visitorDAO;
+
+    public function setUserDAO($userDAO) {
+        $this->visitorDAO = $userDAO;
+    }
     private $familyDAO;
 
     public function setFamilyDAO($familyDAO) {
@@ -81,6 +91,10 @@ class DrugDAO extends DAO
         $familyId = $row['family_id'];
         $family = $this->familyDAO->find($familyId);
 
+          // Find the associated user
+        $visitorId = $row['visitor_id'];
+        $visitor = $this->visitorDAO->find($visitorId);
+        
         $drug = new Drug();
         $drug->setId($row['drug_id']);
         $drug->setCopyrighting($row['copyrighting']);
@@ -90,6 +104,8 @@ class DrugDAO extends DAO
         $drug->setContraindication($row['contraindication']);
         $drug->setSamplePrice($row['sample_price']);
         $drug->setFamily($family);
+        $drug->setAuthor($visitor);
         return $drug;
     }
+    
 }

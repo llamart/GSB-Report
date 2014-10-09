@@ -53,3 +53,10 @@ $app->get('/practitioners/{id}', function($id) use ($app) {
     $prac = $app['dao.practitioner']->find($id);
     return $app['twig']->render('practitioner.html.twig', array('practitioner' => $prac));
 });
+// Login form
+$app->get('/login', function(Request $request) use ($app) {
+    return $app['twig']->render('login.html.twig', array(
+        'error'         => $app['security.last_error']($request),
+        'last_username' => $app['session']->get('_security.last_username'),
+    ));
+})->bind('login'); 

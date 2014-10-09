@@ -37,8 +37,33 @@
                             </ul>
                         </li>
                     </ul>
+                            <div class="collapse navbar-collapse" id="navbar-collapse-target">
+                    <ul class="nav navbar-nav navbar-right">
+                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                            <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-user"></span> Bienvenue, {{ app.security.token.visitor.username }} <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ path('logout') }}">Se déconnecté</a></li>
+                                </ul>
+                            </li>
+                        {% else %}
+                            <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-user"></span> Non connecté <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ path('login') }}">Se connecté</a></li>
+                                </ul>
+                            </li>
+                        {% endif %}
+                    </ul>
                 </div>
-            </div><!-- /.container -->
+                </div>
+                             
+                
+            
+            </div>
+                            <!-- /.container -->
         </nav>
         {% autoescape %}
         <div id="content">{% block content %}{% endblock %}</div>

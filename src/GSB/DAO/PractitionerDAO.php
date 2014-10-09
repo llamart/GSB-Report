@@ -6,6 +6,11 @@ use GSB\Domain\Practitioner;
 
 class PractitionerDAO extends DAO 
 {
+        protected $visitorDAO;
+
+    public function setVisitorDAO($userDAO) {
+        $this->visitorDAO = $userDAO;
+    }
 
     private $typeDAO;
 
@@ -49,6 +54,8 @@ class PractitionerDAO extends DAO
      protected function buildDomainObject($row) {
         $typeId = $row['practitioner_type_id'];
         $type = $this->typeDAO->find($typeId);
+        
+      
 
         $practitioner = new Practitioner();
         $practitioner->setId($row['practitioner_id']);
